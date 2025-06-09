@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 
 void main() {
   runApp(const MyApp());
@@ -122,4 +123,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+=======
+import 'MyApp/MyApp1.dart';
+
+
+void main() {
+  runApp(MyApp1());
+>>>>>>> fa0351b (Ajout MyApp1, SplashScreen)
 }
