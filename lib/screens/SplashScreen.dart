@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
-
+import '../theme/color.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: AppColor.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -24,12 +24,12 @@ class SplashScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColor.welcomeTextColor,
               ),
             ),
             const SizedBox(height: 20),
             MaterialButton(
-              color: Colors.white,
+                color :AppColor.buttonColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -43,7 +43,7 @@ class SplashScreen extends StatelessWidget {
               child: const Text(
                 'Proceed to Login',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColor.buttonTextColor,
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
                 ),

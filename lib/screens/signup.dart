@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import '../services/firebase_service.dart';
+import '../theme/color.dart';
 
 class signup extends StatefulWidget {
   const signup({super.key});
@@ -12,27 +13,28 @@ class _signup extends State<signup> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final NameController = TextEditingController();
-  void signup() async {
-    try {
-      UserCredential user = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
+  final FirebaseService _firebaseService = FirebaseService();
 
-      );
-      await user.user?.updateDisplayName(NameController.text.trim());
 
-      print("User signed up: ${user.user?.email}");
+  void handleSignup() async {
+    final userCredential = await _firebaseService.signup(
+      emailController.text,
+      passwordController.text,
+      NameController.text,
+    );
 
-    } catch (e) {
-      print("Error: $e");
+    if (userCredential != null) {
+      print("User signed up: ${userCredential.user?.email}");
+
+    } else {
+      print("Signup failed");
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue.shade100,
+      backgroundColor: AppColor.background,
       body: Container(
         padding:  EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -40,7 +42,7 @@ class _signup extends State<signup> {
             SizedBox(height: 50),
             Text("Sign up to continue ",
             style: TextStyle(
-              color: Colors.black,
+              color: AppColor.signupText ,
               fontSize: 50,
               fontWeight: FontWeight.bold,
             ),),
@@ -51,7 +53,7 @@ class _signup extends State<signup> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide: const BorderSide(
-                    color: Colors.blue,
+                    color: AppColor.border,
                     width: 1.0,
                   ),
                 ),
@@ -64,7 +66,7 @@ class _signup extends State<signup> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide: const BorderSide(
-                    color: Colors.blue,
+                    color: AppColor.border,
                     width: 1.0,
                   ),
                 ),
@@ -77,7 +79,7 @@ class _signup extends State<signup> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
                   borderSide: const BorderSide(
-                    color: Colors.blue,
+                    color: AppColor.border,
                     width: 1.0,
                   ),
                 ),
@@ -88,7 +90,7 @@ class _signup extends State<signup> {
               child: Text(
                 'Sign up',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColor.signupText,
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
                 ),
