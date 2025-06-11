@@ -10,8 +10,8 @@ class login extends StatefulWidget {
 }
 
 class _loginState extends State<login> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final  emailController = TextEditingController();
+  final  passwordController = TextEditingController();
   final FirebaseService _firebaseService = FirebaseService();
 @override
   Widget build(BuildContext context) {
