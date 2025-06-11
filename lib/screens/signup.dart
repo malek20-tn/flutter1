@@ -48,6 +48,7 @@ class _signup extends State<signup> {
             ),),
              SizedBox(height: 300),
             TextField(
+              controller:NameController,
               decoration: InputDecoration(
                 labelText: 'Name',
                 enabledBorder: OutlineInputBorder(
@@ -61,6 +62,7 @@ class _signup extends State<signup> {
             ),
             SizedBox(height: 20),
             TextField(
+               contoller:emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
                 enabledBorder: OutlineInputBorder(
@@ -74,6 +76,7 @@ class _signup extends State<signup> {
             ),
             SizedBox(height: 20),
             TextField(
+              controller:passwordControlle,
               decoration: InputDecoration(
                 labelText: 'password',
                 enabledBorder: OutlineInputBorder(
