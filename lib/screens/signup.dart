@@ -62,7 +62,7 @@ class _signup extends State<signup> {
             ),
             SizedBox(height: 20),
             TextField(
-               contoller:emailController,
+               controller:emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
                 enabledBorder: OutlineInputBorder(
