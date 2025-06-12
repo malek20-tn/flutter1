@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/firebase_service.dart';
 import '../theme/color.dart';
+import 'screen1.dart';
 
 class signup extends StatefulWidget {
   const signup({super.key});
@@ -15,7 +16,6 @@ class _signup extends State<signup> {
   final NameController = TextEditingController();
   final FirebaseService _firebaseService = FirebaseService();
 
-
   void handleSignup() async {
     final userCredential = await _firebaseService.signup(
       emailController.text,
@@ -25,7 +25,6 @@ class _signup extends State<signup> {
 
     if (userCredential != null) {
       print("User signed up: ${userCredential.user?.email}");
-
     } else {
       print("Signup failed");
     }
@@ -36,19 +35,23 @@ class _signup extends State<signup> {
     return Scaffold(
       backgroundColor: AppColor.background,
       body: Container(
-        padding:  EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             SizedBox(height: 50),
-            Text("Sign up to continue ",
-            style: TextStyle(
-              color: AppColor.signupText ,
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),),
-             SizedBox(height: 300),
+            Text(
+              "Sign up to continue ",
+              style: TextStyle(
+                color: AppColor.signupText,
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 300),
             TextField(
+
               controller:NameController,
+
               decoration: InputDecoration(
                 labelText: 'Name',
                 enabledBorder: OutlineInputBorder(
@@ -62,6 +65,7 @@ class _signup extends State<signup> {
             ),
             SizedBox(height: 20),
             TextField(
+
                controller:emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -76,7 +80,9 @@ class _signup extends State<signup> {
             ),
             SizedBox(height: 20),
             TextField(
-              controller:passwordControlle,
+
+              controller:passwordController,
+
               decoration: InputDecoration(
                 labelText: 'password',
                 enabledBorder: OutlineInputBorder(
@@ -98,8 +104,24 @@ class _signup extends State<signup> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              onPressed: () {},
-            )
+              onPressed: handleSignup,
+            ),
+            SizedBox(height: 20),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Screen1()),
+                );
+              },
+              child: Text(
+                "Go to Home",
+                style: TextStyle(
+                  color: AppColor.signupText,
+                  fontSize: 18,
+                ),
+              ),
+            ),
           ],
         ),
       ),
