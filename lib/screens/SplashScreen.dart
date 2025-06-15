@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
+
 import '../theme/color.dart';
+import '../widgets/logo-Splash.dart';
+import '../widgets/text-splash.dart';
+import '../widgets/button-splash.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -12,43 +15,12 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/logo.jpg',
-              width: 100,
-              height: 100,
-              fit: BoxFit.cover,
-            ),
+            logosplash(),
             const SizedBox(height: 20),
-            const Text(
-              'Welcome',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: AppColor.welcomeTextColor,
-              ),
-            ),
+            textsplash(),
             const SizedBox(height: 20),
-            MaterialButton(
-                color :AppColor.buttonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const login()),
-                );
-              },
-              child: const Text(
-                'Proceed to Login',
-                style: TextStyle(
-                  color: AppColor.buttonTextColor,
-                  fontSize: 23,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
+            buttonsplash(),
+
           ],
         ),
       ),
