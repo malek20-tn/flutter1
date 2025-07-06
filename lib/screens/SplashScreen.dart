@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
             logosplash(),
             const SizedBox(height: 20),
           AppLabel(
-            text:"Welcom",
+            text:"Welcome",
           ),
             const SizedBox(height: 20),
             Button(
