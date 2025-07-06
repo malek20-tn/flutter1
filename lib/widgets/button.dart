@@ -4,7 +4,7 @@ import '../theme/color.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+ 
 
   const Button({
     super.key,
