@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
 import '../theme/color.dart';
 import '../widgets/logo-Splash.dart';
-import '../widgets/text-splash.dart';
-import '../widgets/button-splash.dart';
+import '../widgets/Text.dart';
+import '../widgets/button.dart';
+import 'login.dart';
+
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -17,9 +18,20 @@ class SplashScreen extends StatelessWidget {
           children: [
             logosplash(),
             const SizedBox(height: 20),
-            textsplash(),
+          AppLabel(
+            text:"Welcom",
+          ),
             const SizedBox(height: 20),
-            buttonsplash(),
+            Button(
+              text: "login",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const login()),
+                );
+              },
+            ),
+
 
           ],
         ),

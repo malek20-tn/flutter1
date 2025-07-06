@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import '../services/firebase_service.dart';
 import '../theme/color.dart';
 import 'screen1.dart';
-import '../widgets/button-login.dart';
-import '../widgets/Text-signup.dart';
-import '../widgets/buttongoHome.dart';
-import '../widgets/passwordtextfield.dart';
-import '../widgets/emailtextfield-login.dart';
+import '../widgets/button.dart';
 
-class signup extends StatefulWidget {
-  const signup({super.key});
+
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<signup> createState() => _signup();
+  State<Signup> createState() => _Signup();
 }
 
-class _signup extends State<signup> {
+class _Signup extends State<Signup> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
   final NameController = TextEditingController();
@@ -43,18 +40,38 @@ class _signup extends State<signup> {
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(height: 50),
-            Textsignup(),
             SizedBox(height: 300),
+            TextField(
+              controller: NameController,
+              decoration: InputDecoration(
+                hintText: "Name",),
+            ),
+            SizedBox(height: 20),
+            TextField(
+              controller: emailcontroller,
+              decoration: InputDecoration(
+                hintText: "Email",),
 
+            ),
             SizedBox(height: 20),
-            EmailTextField(emailcontroller: emailcontroller),
+            TextField(
+              controller:passwordcontroller ,
+              decoration: InputDecoration(
+                hintText: "password",),
+
+            ),
             SizedBox(height: 20),
-            PasswordTextField(passwordcontroller: passwordcontroller),
-            SizedBox(height: 20),
-            Buttonlogin(),
-            SizedBox(height: 20),
-            ButtonHome(),
+            Button(
+              text: "login",
+              onPressed: () {
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Screen1()),
+                );
+              },
+            ),
+
           ],
         ),
       ),

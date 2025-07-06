@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'signup.dart';
 import '../services/firebase_service.dart';
 import '../theme/color.dart';
-import '../widgets/emailtextfield-login.dart';
-import '../widgets/passwordtextfield.dart';
-import '../widgets/button-login.dart';
-import '../widgets/signup-login.dart';
+import '../widgets/button.dart';
+import '../widgets/TextField.dart';
 class login extends StatefulWidget {
   const login({super.key});
   @override
@@ -23,13 +21,38 @@ class _loginState extends State<login> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            EmailTextField(emailcontroller: emailcontroller),
+            TextField(
+              controller: emailcontroller,
+          decoration: InputDecoration(
+              hintText: "Email",),
+
+            ),
             SizedBox(height: 20),
-            PasswordTextField(passwordcontroller: passwordcontroller),
+            TextField(
+              controller:passwordcontroller ,
+              decoration: InputDecoration(
+                hintText: "password",),
+
+            ),
+
             SizedBox(height: 20),
-            Buttonlogin(),
+            Button(
+              text: "Login",
+              onPressed: () {
+              },
+            ),
             SizedBox(height: 20),
-            Buttonsignup(),
+            Button(
+              text: "Sign Up",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Signup()),
+                );
+              },
+            ),
+            SizedBox(height: 20),
+
 
           ],
         ),
